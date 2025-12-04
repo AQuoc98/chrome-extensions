@@ -2,18 +2,41 @@
   "name": "@chrome-extensions/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "dev": "nx dev",
+    "build": "nx build",
+    "build:all": "nx run-many -t build",
+    "preview": "nx preview",
+    "lint": "nx lint",
+    "lint:all": "nx run-many -t lint",
+    "fmt": "nx fmt",
+    "fmt:all": "prettier --write '**/*.{jsx,js,json,css,scss,md}'",
+    "zip": "nx zip",
+    "graph": "nx graph",
+    "reset": "nx reset"
+  },
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
   "devDependencies": {
+    "@crxjs/vite-plugin": "^2.0.0-beta.26",
     "@nx/js": "22.1.2",
     "@swc-node/register": "~1.9.1",
     "@swc/core": "~1.5.7",
     "@swc/helpers": "~0.5.11",
+    "@types/react": "^18.2.28",
+    "@types/react-dom": "^18.2.13",
+    "@vitejs/plugin-react": "^4.1.0",
+    "glob": "^10.3.10",
+    "gulp": "^5.0.0",
+    "gulp-zip": "^6.0.0",
     "nx": "22.1.2",
-    "prettier": "^2.6.2",
+    "prettier": "^3.0.3",
     "tslib": "^2.3.0",
-    "typescript": "~5.9.2"
+    "typescript": "~5.9.2",
+    "vite": "^5.4.10"
   },
   "workspaces": [
     "packages/*"

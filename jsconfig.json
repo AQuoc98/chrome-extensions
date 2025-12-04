@@ -1,0 +1,11 @@
+{
+  "typeAcquisition": {
+    "include": ["chrome"]
+  },
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@sst-blue-0001/*": ["packages/sst-blue-0001/src/*"]
+    }
+  }
+}

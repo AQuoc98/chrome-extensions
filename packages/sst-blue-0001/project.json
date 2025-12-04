@@ -1,0 +1,58 @@
+{
+  "name": "sst-blue-0001",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/sst-blue-0001/src",
+  "projectType": "application",
+  "tags": ["type:app", "platform:chrome-extension"],
+  "targets": {
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/sst-blue-0001",
+        "command": "vite"
+      }
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["^build"],
+      "options": {
+        "cwd": "packages/sst-blue-0001",
+        "command": "vite build"
+      },
+      "outputs": ["{projectRoot}/build"],
+      "cache": true
+    },
+    "preview": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["build"],
+      "options": {
+        "cwd": "packages/sst-blue-0001",
+        "command": "vite preview"
+      }
+    },
+    "fmt": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/sst-blue-0001",
+        "command": "prettier --write '**/*.{jsx,js,json,css,scss,md}'"
+      }
+    },
+    "zip": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["build"],
+      "options": {
+        "cwd": "packages/sst-blue-0001",
+        "command": "node src/zip.js"
+      },
+      "outputs": ["{projectRoot}/package"]
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/sst-blue-0001",
+        "command": "prettier --check '**/*.{jsx,js,json,css,scss,md}'"
+      },
+      "cache": true
+    }
+  }
+}
